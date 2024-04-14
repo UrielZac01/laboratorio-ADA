@@ -1,0 +1,19 @@
+def min_monedas(V):
+    denominaciones = [1, 2, 5, 10, 20, 50, 100, 500, 1000]
+    n = len(denominaciones)
+    cambio = []
+
+    for i in range(n - 1, -1, -1):
+        while V >= denominaciones[i]:
+            V -= denominaciones[i]
+            cambio.append(denominaciones[i])
+
+    return cambio
+
+# Ejemplos
+cantidades = [2550, 8432, 263]
+for cantidad in cantidades:
+    print(f"Cantidad: {cantidad}")
+    print(f"Numero minimo de monedas: {len(min_monedas(cantidad))}")
+    print(f"Monedas: {min_monedas(cantidad)}")
+    print()
